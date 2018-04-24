@@ -1,0 +1,11 @@
+blind_homepage:
+    path:     /
+    defaults: { _controller: BlindBundle:Tournoi:index }
+
+tournoi_index:
+    path:     /index
+    defaults: { _controller: BlindBundle:Tournoi:index }
+
+tournoi_create:
+    path:     /create
+    defaults: { _controller: BlindBundle:Tournoi:create }

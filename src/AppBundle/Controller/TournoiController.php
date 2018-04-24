@@ -14,9 +14,10 @@ class TournoiController extends Controller
      */
     public function indexAction()
     {
-         return new Response(
+      /*   return new Response(
             '<html><body>On va lister les tournois</body></html>'
-        );
+        );*/
+          return $this->render('tournoi/sdfsindex.html.twig');
     }
 
 }

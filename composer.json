@@ -1,10 +1,10 @@
 {
-    "name": "ikikay/blind_test",
+    "name": "asus pc/blind_test",
     "license": "proprietary",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle"
+            "": "src/"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -53,6 +53,9 @@
         ]
     },
     "config": {
+        "platform": {
+            "php": "5.5.9"
+        },
         "sort-packages": true
     },
     "extra": {
@@ -64,7 +67,6 @@
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-        },
-        "branch-alias": null
+        }
     }
 }
