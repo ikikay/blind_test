@@ -20,9 +20,10 @@ class ThemeController extends Controller {
      */
     public function indexAction() {
         $em = $this->getDoctrine()->getManager(); // Création de l'outil d'accès à la BDD
-        $repository = $em->getRepository("BlindBundle:Tournoi"); // repository permet de faire les requête find et tout
+        $repository = $em->getRepository("BlindBundle:Theme"); // repository permet de faire les requête find et tout
 
         $lesThemes = $repository->findAll(); // renvois tout
+        
         // On renvois la page avec la variable contenant l'objet
         return $this->render('@Blind/Theme/index.html.twig', array(
                     'lesThemes' => $lesThemes,
