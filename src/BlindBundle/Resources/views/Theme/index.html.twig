@@ -4,12 +4,26 @@
 
 {% block body %}
     <h1>Welcome to the Theme:index page</h1>
-    {% for theme in lesThemes %}
-        <p> {{ theme.id }}</p>
-        <p> {{ theme.libelle }}</p>
-        {% for tournoi in theme.tournois %}
-            <p> {{ tournoi.nom }}</p>
-        {% endfor %}        
-        </br>
-    {% endfor %}
+
+    <table border=4 cellpadding=20>
+        <tr>
+        <th>ID</th>
+        <th>Libelle</th>
+        <th>Les Themes</th>
+        <th>Actions</th>
+        </tr>
+            {% for theme in lesThemes %}
+            <tr>
+                <td>{{ theme.id }}</td>
+                <td>{{ theme.libelle }}</td>
+                <td>
+                {% for tournoi in theme.tournois %}
+                    {{ tournoi.nom }} </br>
+                {% endfor %}        
+                </td>
+                <td>DEUX BOUTONS ICI</td>
+            </tr>    
+        {% endfor %}
+    </table>
+    </br>
 {% endblock %}

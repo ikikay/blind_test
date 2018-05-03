@@ -4,10 +4,22 @@
 
 {% block body %}
     <h1>Welcome to the Tournoi:index page</h1>
-    {% for tournoi in lesTournois %}
-        <p> {{ tournoi.id }}</p>
-        <p> {{ tournoi.nom }}</p>
-        <p> {{ tournoi.dateDebut|date('d-m-Y') }}</p>
-        </br>
-    {% endfor %}
+   
+        <table border=4 cellpadding=20>
+        <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>La date</th>
+        <th>Actions</th>
+        </tr>
+            {% for tournoi in lesTournois %}
+            <tr>
+                <td>{{ tournoi.id }}</td>
+                <td>{{ tournoi.nom }}</td>
+                <td>{{ tournoi.dateDebut|date('d-m-Y') }}</td>
+                <td>DEUX BOUTONS ICI</td>
+            </tr>    
+        {% endfor %}
+    </table>
+    </br>
 {% endblock %}
