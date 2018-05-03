@@ -7,7 +7,10 @@
     {% for theme in lesThemes %}
         <p> {{ theme.id }}</p>
         <p> {{ theme.libelle }}</p>
-        <p> {{ theme.tournois }}</p>
+        {% for tournoi in theme.tournois %}
+            <p> {{ tournoi.nom }}</p>
+        {% endfor %}
+        
         </br>
     {% endfor %}
 {% endblock %}
