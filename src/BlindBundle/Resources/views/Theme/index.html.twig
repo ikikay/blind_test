@@ -1,13 +1,13 @@
 {% extends "base.html.twig" %}
 
-{% block title %}BlindBundle:Tournoi:index{% endblock %}
+{% block title %}BlindBundle:Theme:index{% endblock %}
 
 {% block body %}
-    <h1>Welcome to the Tournoi:index page</h1>
-    {% for tournoi in lesTournois %}
-        <p> {{ tournoi.id }}</p>
-        <p> {{ tournoi.nom }}</p>
-        <p> {{ tournoi.dateDebut|date('d-m-Y') }}</p>
+    <h1>Welcome to the Theme:index page</h1>
+    {% for theme in lesThemes %}
+        <p> {{ theme.id }}</p>
+        <p> {{ libelle.nom }}</p>
+        <p> {{ theme.tournois }}</p>
         </br>
     {% endfor %}
 {% endblock %}
