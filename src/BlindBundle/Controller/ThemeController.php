@@ -2,9 +2,11 @@
 
 namespace BlindBundle\Controller;
 
-use BlindBundle\Entity\Theme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use BlindBundle\Entity\Theme;
+use BlindBundle\Form\ThemeType;
 
 /**
  * Theme controller.
@@ -20,7 +22,7 @@ class ThemeController extends Controller {
         $em = $this->getDoctrine()->getManager(); // Création de l'outil d'accès à la BDD
         $repository = $em->getRepository("BlindBundle:Tournoi"); // repository permet de faire les requête find et tout
 
-        $themes = $repository->findAll(); // renvois tout
+        $lesThemes = $repository->findAll(); // renvois tout
         // On renvois la page avec la variable contenant l'objet
         return $this->render('@Blind/Theme/index.html.twig', array(
                     'lesThemes' => $lesThemes,
@@ -32,21 +34,29 @@ class ThemeController extends Controller {
      *
      */
     public function newAction(Request $request) {
+        // 1) build the form
         $theme = new Theme();
-        $form = $this->createForm('BlindBundle\Form\ThemeType', $theme);
-        $form->handleRequest($request);
+        $form = $this->createForm(ThemeType::class, $theme);
 
+        // 2) handle the submit (will only happen on POST)
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            // 3) save the User!
             $em = $this->getDoctrine()->getManager();
             $em->persist($theme);
             $em->flush();
 
-            return $this->redirectToRoute('theme_show', array('id' => $theme->getId()));
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
+
+            return $this->redirectToRoute('theme_index');
         }
 
-        return $this->render('theme/new.html.twig', array(
+        return $this->render('@Blind/Theme/create.html.twig', array(
                     'theme' => $theme,
-                    'form' => $form->createView(),
+                    'form' => $form->createView()
         ));
     }
 
