@@ -23,8 +23,9 @@ class TournoiController extends Controller {
          */
 
         // On renvois la page avec la variable contenant l'objet
-        return $this->render('@Blind/Tournoi/index.html.twig', array('lesTournois' => $lesTournois)
-        );
+        return $this->render('@Blind/Tournoi/index.html.twig', array(
+                    'lesTournois' => $lesTournois,
+        ));
     }
 
     public function createAction(Request $request) {
