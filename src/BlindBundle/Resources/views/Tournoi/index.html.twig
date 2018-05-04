@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Welcome to the Tournoi:index page</h1>
    
-        <table border=4 cellpadding=20>
+        <table border=4 width=80%>
         <tr>
         <th>ID</th>
         <th>Nom</th>
@@ -17,7 +17,7 @@
                 <td>{{ tournoi.id }}</td>
                 <td>{{ tournoi.nom }}</td>
                 <td>{{ tournoi.dateDebut|date('d-m-Y') }}</td>
-                <td>DEUX BOUTONS ICI</td>
+                <td> <button type="button">Supprimer</button>  <button type="button">Modifier</button> </td>
             </tr>    
         {% endfor %}
     </table>
