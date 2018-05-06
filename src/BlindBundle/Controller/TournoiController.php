@@ -28,7 +28,7 @@ class TournoiController extends Controller {
         ));
     }
 
-    public function createAction(Request $request) {
+    public function newAction(Request $request) {
 
         // 1) build the form
         $tournoi = new Tournoi();
@@ -53,6 +53,23 @@ class TournoiController extends Controller {
         return $this->render('@Blind/Tournoi/create.html.twig', array(
                     'form' => $form->createView()
         ));
+    }
+
+    /**
+     * Deletes a tournoi entity.
+     *
+     */
+    public function deleteAction(Request $request, Tournoi $tournoi) {
+        $form = $this->createDeleteForm($tournoi);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($tournoi);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('tournoi_index');
     }
 
 }

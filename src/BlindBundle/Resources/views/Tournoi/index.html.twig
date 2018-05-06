@@ -17,7 +17,10 @@
                 <td>{{ tournoi.id }}</td>
                 <td>{{ tournoi.nom }}</td>
                 <td>{{ tournoi.dateDebut|date('d-m-Y') }}</td>
-                <td> <button type="button">Supprimer</button>  <button type="button">Modifier</button> </td>
+                <td>
+                    <a href="#" class="btn btn-primary btn-sm">Modifier</a>
+                    <a href="{{ path('tournoi_delete', { id: tournoi.id }) }}" class="btn btn-danger btn-sm">Supprimer</a>
+            </td>
             </tr>    
         {% endfor %}
     </table>

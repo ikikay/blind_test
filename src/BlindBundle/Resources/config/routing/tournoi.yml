@@ -1,0 +1,24 @@
+tournoi_index:
+    path:     /
+    defaults: { _controller: "BlindBundle:Tournoi:index" }
+    methods:  GET
+
+tournoi_show:
+    path:     /{id}/show
+    defaults: { _controller: "BlindBundle:Tournoi:show" }
+    methods:  GET
+
+tournoi_new:
+    path:     /new
+    defaults: { _controller: "BlindBundle:Tournoi:new" }
+    methods:  [GET, POST]
+
+tournoi_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BlindBundle:Tournoi:edit" }
+    methods:  [GET, POST]
+
+tournoi_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BlindBundle:Tournoi:delete" }
+    methods:  DELETE

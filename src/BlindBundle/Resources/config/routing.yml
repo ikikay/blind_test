@@ -2,6 +2,10 @@ blind_theme:
     resource: "@BlindBundle/Resources/config/routing/theme.yml"
     prefix:   /theme
 
+blind_tournoi:
+    resource: "@BlindBundle/Resources/config/routing/tournoi.yml"
+    prefix:   /tournoi
+
 blind_homepage:
     path:     /
     defaults: { _controller: BlindBundle:Tournoi:index }
@@ -12,4 +16,4 @@ tournoi_index:
 
 tournoi_create:
     path:     /create
-    defaults: { _controller: BlindBundle:Tournoi:create }
+    defaults: { _controller: BlindBundle:Tournoi:new }
